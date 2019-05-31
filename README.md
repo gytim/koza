@@ -1,9 +1,10 @@
 Мое решение задания
 Как козы едят кусты?
 
-**ДАНО [Задание](https://github.com/gytim/koza/blob/master/task.txt) создать api**
+**ДАНО [Задание](https://github.com/gytim/koza/blob/master/task.txt) ЖРАТЬ КУСТЫ**
 
 Козы бегают и жрут кусты, я немного ушел от задания и сделал наглядно как они все сметают.
+
 ![Картинка](https://github.com/gytim/koza/blob/master/koza.png)
 
 **Если код некрасивый или явные ошибки, буду не против критики. почта: ahrimana @ rambler.ru еще ни разу фидбек не получал**
