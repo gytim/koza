@@ -11,7 +11,7 @@ global END_GAME
 END_GAME = False
 
 
-# Размещаем коз
+# Генерируем и размещаем коз на поле
 def fill_goat():
     # print("Размещаем коз")
     global goats
@@ -25,7 +25,7 @@ def fill_goat():
         goats.append(new_goat)
 
 
-# Сажаем кусты
+# Генерируем и сажаем кусты на поле
 def fill_tree():
     # print("Сажаем кусты")
     global trees
@@ -47,7 +47,7 @@ def fill_tree():
             c.itemconfig(area[new_tree[0]][new_tree[1]], fill=new_tree[2])
 
 
-# Шанс ветра и проставление сдвига
+# Проверяем шанс ветра и сдвигаем козу
 def next_step(goat, s_axis):
     # Проверяем наличие ветра
     is_chance = False
@@ -62,7 +62,7 @@ def next_step(goat, s_axis):
     else:
         step = random.randint(0, cfg.GOAT_SPEED)
 
-    # Выход за пределы поля
+    # Проверка выхода за пределы поля
     next_coodinate = goat[cfg.AXIS[s_axis][0]] + step * goat[cfg.AXIS[s_axis][1]]
     if next_coodinate >= cfg.GRID_SIZE - 1:
         goat[cfg.AXIS[s_axis][0]] = (cfg.GRID_SIZE - 1) * 2 - next_coodinate
@@ -133,7 +133,7 @@ def ch_goat(goat):
                 return
 
 
-# Заполняем форму квадратами вызываем все остальное
+# Заполняем форму квадратами, генерим все остальное
 def init():
     global c
     c = Canvas(root, width=cfg.GRID_SIZE * cfg.SQUARE_SIZE,
@@ -157,7 +157,7 @@ def init():
     fill_tree()
     fill_goat()
 
-
+# Начинаем движение коз
 def main():
     # print("START_GAME")
     root.after(cfg.TIME_S, run_X)
