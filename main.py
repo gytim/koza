@@ -3,7 +3,7 @@ import random
 import time
 import config as cfg
 
-# МЫШЬ [x, y, vecX, vecY, name, color]
+# КОЗА [x, y, направлениеX, направлениеY, name, color]
 # КУСТ [x, y, color]
 
 # СКРИПТ
