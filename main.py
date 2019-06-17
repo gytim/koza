@@ -20,7 +20,7 @@ def fill_goat():
     for i in range(cfg.GOATS_COUNT):
         new_goat = [random.randint(0, cfg.GRID_SIZE - 1), random.randint(0, cfg.GRID_SIZE - 1), 1, 1, i,
                     "#FFFFFF"]
-        c.itemconfig(area[new_goat[0]][new_goat[1]], fill=new_goat[5])
+        c.itemconfig(area[ new_goat[0] ][ new_goat[1] ], fill=new_goat[5])
         ch_goat(new_goat)
         goats.append(new_goat)
 
@@ -44,7 +44,7 @@ def fill_tree():
 
         if one_tree:
             trees.append(new_tree)
-            c.itemconfig(area[new_tree[0]][new_tree[1]], fill=new_tree[2])
+            c.itemconfig(area[ new_tree[0] ][ new_tree[1] ], fill=new_tree[2])
 
 
 # Проверяем шанс ветра и сдвигаем козу
@@ -63,15 +63,15 @@ def next_step(goat, s_axis):
         step = random.randint(0, cfg.GOAT_SPEED)
 
     # Проверка выхода за пределы поля
-    next_coodinate = goat[cfg.AXIS[s_axis][0]] + step * goat[cfg.AXIS[s_axis][1]]
+    next_coodinate = goat[ cfg.AXIS[s_axis][0] ] + step * goat[ cfg.AXIS[s_axis][1] ]
     if next_coodinate >= cfg.GRID_SIZE - 1:
-        goat[cfg.AXIS[s_axis][0]] = (cfg.GRID_SIZE - 1) * 2 - next_coodinate
-        goat[cfg.AXIS[s_axis][1]] = (-1) * goat[cfg.AXIS[s_axis][1]]
+        goat[ cfg.AXIS[s_axis][0] ] = (cfg.GRID_SIZE - 1) * 2 - next_coodinate
+        goat[ cfg.AXIS[s_axis][1] ] = (-1) * goat[ cfg.AXIS[s_axis][1] ]
     elif next_coodinate <= 0:
-        goat[cfg.AXIS[s_axis][0]] = (-1) * next_coodinate
-        goat[cfg.AXIS[s_axis][1]] = (-1) * goat[cfg.AXIS[s_axis][1]]
+        goat[ cfg.AXIS[s_axis][0] ] = (-1) * next_coodinate
+        goat[ cfg.AXIS[s_axis][1] ] = (-1) * goat[ cfg.AXIS[s_axis][1] ]
     else:
-        goat[cfg.AXIS[s_axis][0]] = next_coodinate
+        goat[ cfg.AXIS[s_axis][0] ] = next_coodinate
 
 
 # сдвиг по Х
@@ -82,12 +82,12 @@ def run_X():
         return
 
     for goat in goats:
-        c.itemconfig(area[goat[0]][goat[1]], fill="gray")
+        c.itemconfig(area[ goat[0] ][ goat[1] ], fill="gray")
 
         next_step(goat, "X")
         ch_goat(goat)
 
-        c.itemconfig(area[goat[0]][goat[1]], fill=goat[5])
+        c.itemconfig(area[ goat[0] ][ goat[1] ], fill=goat[5])
 
     root.after(cfg.TIME_S, run_Y)
 
@@ -100,12 +100,12 @@ def run_Y():
         return
 
     for goat in goats:
-        c.itemconfig(area[goat[0]][goat[1]], fill="gray")
+        c.itemconfig(area[ goat[0] ][ goat[1] ], fill="gray")
 
         next_step(goat, "Y")
         ch_goat(goat)
 
-        c.itemconfig(area[goat[0]][goat[1]], fill=goat[5])
+        c.itemconfig(area[ goat[0] ][ goat[1] ], fill=goat[5])
 
     root.after(cfg.TIME_S, run_X)
 
