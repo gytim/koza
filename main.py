@@ -67,7 +67,7 @@ def next_step(goat, s_axis):
     if next_coodinate >= cfg.GRID_SIZE - 1:
         goat[cfg.AXIS[s_axis][0]] = (cfg.GRID_SIZE - 1) * 2 - next_coodinate
         goat[cfg.AXIS[s_axis][1]] = (-1) * goat[cfg.AXIS[s_axis][1]]
-    elif goat[cfg.AXIS[s_axis][0]] + step * goat[cfg.AXIS[s_axis][1]] <= 0:
+    elif next_coodinate <= 0:
         goat[cfg.AXIS[s_axis][0]] = (-1) * next_coodinate
         goat[cfg.AXIS[s_axis][1]] = (-1) * goat[cfg.AXIS[s_axis][1]]
     else:
